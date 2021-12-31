@@ -58,6 +58,10 @@ class Fragment3 : Fragment() {
             }
         }
 
+        var fab: Button = view.findViewById(R.id.floatingActionButton)
+        fab.setOnClickListener {
+
+        }
     }
 
 
