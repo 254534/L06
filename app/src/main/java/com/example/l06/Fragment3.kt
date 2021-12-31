@@ -5,6 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.ListView
+import android.widget.Toast
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -17,9 +21,47 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class Fragment3 : Fragment() {
-    // TODO: Rename and change types of parameters
+    private var list = arrayOf("Dzień dobry", "Bonjour", "Hola", "Zdravstvuyte", "Nǐn hǎo", "Salve", "Konnichiwa")
     private var param1: String? = null
     private var param2: String? = null
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        var listView = view.findViewById<ListView>(R.id.main_listview)
+        if (listView != null) {
+            listView.onItemClickListener = object : AdapterView.OnItemLongClickListener,
+                AdapterView.OnItemClickListener {
+
+                override fun onItemLongClick(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ): Boolean {
+                    TODO("Not yet implemented")
+                }
+
+                override fun onItemClick(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+                    if (view != null) {
+                        Toast.makeText(view.context, "$position", Toast.LENGTH_LONG).show()
+                    }
+                }
+            }
+            val adptr: ArrayAdapter<String> = ArrayAdapter<String>(
+                this.requireContext(),
+                android.R.layout.simple_expandable_list_item_1,
+                list
+            )
+            adptr.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            listView.adapter = adptr
+        }
+
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
