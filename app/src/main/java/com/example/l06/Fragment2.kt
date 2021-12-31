@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.GridView
+import android.widget.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -18,6 +18,9 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class Fragment2 : Fragment() {
+    private var list = arrayOf("Dzień dobry", "Bonjour", "Hola", "Zdravstvuyte", "Nǐn hǎo", "Salve", "Konnichiwa")
+    private var p = arrayOf("1", "2", "3", "4", "5", "6", "7")
+
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -34,6 +37,34 @@ class Fragment2 : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val gridView = view.findViewById(R.id.gridview) as GridView
         gridView.adapter = GridAdapter(this.requireContext())
+
+        val spin = view.findViewById(R.id.spinner) as Spinner?
+        if (spin != null) {
+
+            spin.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    parent: AdapterView<*>,
+                    view: View,
+                    position: Int,
+                    id: Long
+                ) {
+//                    Toast.makeText(view.context,
+//                        "Wybrałe ś : "+p[position],
+//                        Toast.LENGTH_LONG).show();
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>) {
+
+                }
+            }
+            val adptr: ArrayAdapter<String> = ArrayAdapter<String>(
+                this.requireContext(),
+                android.R.layout.simple_spinner_item,
+                list
+            )
+            adptr.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            spin.adapter = adptr
+        }
     }
 
     override fun onCreateView(
