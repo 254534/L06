@@ -6,12 +6,18 @@
     android:orientation="vertical"
     tools:context=".Fragment2">
 
-    <ImageView
-        android:id="@+id/imageView"
+    <GridView
+        android:id="@+id/gridview"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="5"
-        tools:src="@tools:sample/avatars" />
+        android:gravity="center"
+        android:horizontalSpacing="10dp"
+        android:verticalSpacing="10dp"
+        android:stretchMode="columnWidth"
+        android:columnWidth="100dp"
+        android:numColumns="auto_fit"
+        />
 
     <EditText
         android:id="@+id/editText"
