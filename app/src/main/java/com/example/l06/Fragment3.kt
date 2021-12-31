@@ -16,6 +16,7 @@ class Fragment3 : Fragment() {
         private var occupation = arrayOf("architekt", "informatyk", "informatyk", "nauczyciel", "taksówkarz", "fryzjer", "architekt")
         private var gender = arrayListOf<Boolean>(false, true, true, true, true, false, true)
         private var age = arrayListOf<Int>(15, 23, 11, 23, 33, 45, 21)
+        private var rating = arrayListOf<Float>(1.5F, 2F, 5F, 5F, 3.5F, 4.5F, 2F)
         private var color = arrayListOf<Int>(Color.BLACK, Color.rgb(10, 200, 50), Color.RED, Color.RED, Color.RED, Color.RED, Color.RED)
     }
 
@@ -65,6 +66,7 @@ class Fragment3 : Fragment() {
                         bundle.putBoolean("gender", gender[position])
                         bundle.putString("occupation", occupation[position])
                         bundle.putInt("color", color[position])
+                        bundle.putFloat("rating", rating[position])
                         intent.putExtras(bundle)
                         startActivity(intent)
                     }

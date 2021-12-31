@@ -19,6 +19,7 @@ class DetailsActivity : AppCompatActivity() {
     private var gender: Boolean? = null
     private var occupation: String? = null
     private var color: Int? = null
+    private var rating: Float? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +33,7 @@ class DetailsActivity : AppCompatActivity() {
         gender = bundle.getBoolean("gender")
         occupation = bundle.getString("occupation")
         color = bundle.getInt("color")
+        rating = bundle.getFloat("rating")
 
         val textName: TextView = findViewById(R.id.textViewName)
         val textGender: TextView = findViewById(R.id.textViewGender)
@@ -48,5 +50,6 @@ class DetailsActivity : AppCompatActivity() {
         textOccupation.text = occupation
         textColor.setBackgroundColor(color!!)
         ratingBar.numStars = 5
+        ratingBar.rating = rating!!
     }
 }
