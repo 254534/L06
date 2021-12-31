@@ -6,10 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.AttributeSet
 import android.view.View
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.RatingBar
-import android.widget.TextView
+import android.widget.*
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 
@@ -51,5 +48,15 @@ class DetailsActivity : AppCompatActivity() {
         textColor.setBackgroundColor(color!!)
         ratingBar.numStars = 5
         ratingBar.rating = rating!!
+
+        val backButton: Button = findViewById(R.id.button1)
+        backButton.setOnClickListener {
+            onBackPressed()
+        }
+
+        val editButton: Button = findViewById(R.id.button2)
+        editButton.setOnClickListener {
+            // open edit
+        }
     }
 }
