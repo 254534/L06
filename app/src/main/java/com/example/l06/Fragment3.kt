@@ -5,71 +5,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.ListView
-import android.widget.Toast
+import android.widget.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [Fragment3.newInstance] factory method to
- * create an instance of this fragment.
- */
 class Fragment3 : Fragment() {
-    private var list = arrayOf("Dzień dobry", "Bonjour", "Hola", "Zdravstvuyte", "Nǐn hǎo", "Salve", "Konnichiwa")
-    private var param1: String? = null
-    private var param2: String? = null
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         var listView = view.findViewById<ListView>(R.id.main_listview)
-        if (listView != null) {
-            listView.onItemClickListener = object : AdapterView.OnItemLongClickListener,
-                AdapterView.OnItemClickListener {
-
-                override fun onItemLongClick(
-                    parent: AdapterView<*>?,
-                    view: View?,
-                    position: Int,
-                    id: Long
-                ): Boolean {
-                    TODO("Not yet implemented")
-                }
-
-                override fun onItemClick(
-                    parent: AdapterView<*>?,
-                    view: View?,
-                    position: Int,
-                    id: Long
-                ) {
-                    if (view != null) {
-                        Toast.makeText(view.context, "$position", Toast.LENGTH_LONG).show()
-                    }
-                }
-            }
-            val adptr: ArrayAdapter<String> = ArrayAdapter<String>(
-                this.requireContext(),
-                android.R.layout.simple_expandable_list_item_1,
-                list
-            )
-            adptr.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            listView.adapter = adptr
+        if (listView != null) run {
+            var adapter = CustomListViewAdapter(view.context)
+            listView.adapter = adapter
         }
 
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -77,25 +25,5 @@ class Fragment3 : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_3, container, false)
-    }
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Fragment3.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Fragment3().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
     }
 }
