@@ -56,7 +56,16 @@ class DetailsActivity : AppCompatActivity() {
 
         val editButton: Button = findViewById(R.id.button2)
         editButton.setOnClickListener {
-            // open edit
+            val intent = Intent(this, EditActivity::class.java)
+//            val bundle = Bundle()
+//            bundle.putInt("position", position!!)
+//            bundle.putString("name", name)
+//            bundle.putBoolean("gender", gender!!)
+//            bundle.putString("occupation", occupation)
+//            bundle.putInt("color", color!!)
+//            bundle.putFloat("rating", rating!!)
+            intent.putExtras(bundle)
+            startActivity(intent)
         }
     }
 }
