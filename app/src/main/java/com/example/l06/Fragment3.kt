@@ -1,17 +1,23 @@
 package com.example.l06
 
+import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class Fragment3 : Fragment() {
-    private var names = arrayOf("Yahya O'Brien", "Anne-Marie Sharpe", "Vanessa Raymond", "Kerri Estrada", "Trixie Greenwood", "Ariyan Gaines", "Kinga Stark")
-    private var occupation = arrayOf("architekt", "informatyk", "informatyk", "nauczyciel", "taksówkarz", "fryzjer", "architekt")
-    private var gender = arrayListOf<Boolean>(false, true, true, true, true, false, true)
-    private var age = arrayListOf<Int>(15, 23, 11, 23, 33, 45, 21)
+    companion object {
+        private var names = arrayOf("Yahya O'Brien", "Anne-Marie Sharpe", "Vanessa Raymond", "Kerri Estrada", "Trixie Greenwood", "Ariyan Gaines", "Kinga Stark")
+        private var occupation = arrayOf("architekt", "informatyk", "informatyk", "nauczyciel", "taksówkarz", "fryzjer", "architekt")
+        private var gender = arrayListOf<Boolean>(false, true, true, true, true, false, true)
+        private var age = arrayListOf<Int>(15, 23, 11, 23, 33, 45, 21)
+        private var color = arrayListOf<Int>(Color.BLACK, Color.rgb(10, 200, 50), Color.RED, Color.RED, Color.RED, Color.RED, Color.RED)
+    }
 
     fun <T> append(arr: Array<T>, element: T): Array<T?> {
         val array = arr.copyOf(arr.size + 1)
@@ -26,9 +32,9 @@ class Fragment3 : Fragment() {
             var limg: Array<Int?> = arrayOf()
             for(g in gender) {
                 limg = if(g) {
-                    append(limg, R.drawable.z1)
+                    append(limg, R.drawable.woman)
                 } else {
-                    append(limg, R.drawable.z2)
+                    append(limg, R.drawable.man)
                 }
             }
             var adapter = CustomListViewAdapter(view.context, names, occupation, limg as Array<Int>)
@@ -52,15 +58,24 @@ class Fragment3 : Fragment() {
                     id: Long
                 ) {
                     if (view != null) {
-                        Toast.makeText(view.context, names[position], Toast.LENGTH_LONG).show()
+                        val intent = Intent(view.context, DetailsActivity::class.java)
+                        val bundle = Bundle()
+                        bundle.putInt("position", position)
+                        bundle.putString("name", names[position])
+                        bundle.putBoolean("gender", gender[position])
+                        bundle.putString("occupation", occupation[position])
+                        bundle.putInt("color", color[position])
+                        intent.putExtras(bundle)
+                        startActivity(intent)
                     }
                 }
             }
         }
 
-        var fab: Button = view.findViewById(R.id.floatingActionButton)
+        var fab: FloatingActionButton = view.findViewById(R.id.floatingActionButton)
         fab.setOnClickListener {
-
+            val intent = Intent(view.context, DetailsActivity::class.java)
+            startActivity(intent)
         }
     }
 
