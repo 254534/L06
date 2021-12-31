@@ -12,9 +12,10 @@ import android.view.View
 import android.widget.*
 
 
-class CustomListViewAdapter internal constructor(context: Context) : BaseAdapter() {
-    private var ltxt1 = arrayOf("Dzień dobry", "Bonjour", "Hola", "Zdravstvuyte", "Nǐn hǎo", "Salve", "Konnichiwa")
-    private var ltxt2 = arrayOf("polski", "francuski", "hiszpański", "rosyjski", "chiński", "włoski", "japoński")
+class CustomListViewAdapter internal constructor(context: Context, mainNames: Array<String>, subNames: Array<String>, images: Array<Int>) : BaseAdapter() {
+    private var mainNamesInner: Array<String> = mainNames
+    private var subNamesInner: Array<String> = subNames
+    private var imagesInner: Array<Int> = images
 
     class LVitem {
         var tv1: TextView? = null
@@ -50,13 +51,14 @@ class CustomListViewAdapter internal constructor(context: Context) : BaseAdapter
         } else myLVitem = listItemView.tag as LVitem
 
         //here: setting of the components of the current list item
-        myLVitem!!.tv1?.text = ltxt1[position]
-        myLVitem!!.tv2?.text = ltxt2[position]
+        myLVitem!!.tv1?.text = mainNamesInner[position]
+        myLVitem!!.tv2?.text = subNamesInner[position]
+        myLVitem!!.img?.setImageResource(imagesInner[position])
         return listItemView
     }
 
     init {
-        list_length = ltxt1.size
+        list_length = mainNames.size
         inflater = LayoutInflater.from(context)
     }
 }
