@@ -64,26 +64,29 @@
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_weight="2">
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="Zawód" />
 
         <EditText
             android:id="@+id/editOccupation"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            />
+            android:layout_weight="1" />
     </TableRow>
 
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_weight="1">
 
         <TextView
@@ -106,56 +109,64 @@
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_weight="1">
 
         <TextView
             android:id="@+id/textView8"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="Czerwony" />
 
         <SeekBar
             android:id="@+id/seekBarR"
             android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
     </TableRow>
+
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_weight="1">
 
         <TextView
             android:id="@+id/textView9"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="Zielony" />
 
         <SeekBar
             android:id="@+id/seekBarG"
             android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
     </TableRow>
+
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_weight="1">
 
         <TextView
             android:id="@+id/textView10"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="Niebieski" />
 
         <SeekBar
             android:id="@+id/seekBarB"
             android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
     </TableRow>
 
     <TextView

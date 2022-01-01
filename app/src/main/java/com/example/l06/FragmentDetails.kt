@@ -11,6 +11,7 @@ import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -46,9 +47,9 @@ class FragmentDetails : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         parentFragmentManager.setFragmentResultListener("f3", viewLifecycleOwner) {
                 _, bundle ->
+
             innerBundle = bundle
             position = bundle?.getInt("position")!!
             name = bundle.getString("name")
@@ -86,6 +87,7 @@ class FragmentDetails : Fragment() {
             if(parentFragment != null) {
                 parentFragment?.parentFragmentManager?.setFragmentResult("f3_edit", innerBundle!!)
             }
+            requireActivity().findViewById<BottomNavigationView>(R.id.bottom_nav).visibility = View.GONE
             findNavController().navigate(R.id.action_global_fragmentEdit)
         }
     }

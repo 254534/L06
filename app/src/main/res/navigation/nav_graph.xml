@@ -21,9 +21,18 @@
         android:label="fragment_3"
         tools:layout="@layout/fragment_3" />
 
-    <action android:id="@+id/action_global_fragment1" app:destination="@id/fragment1" />
-    <action android:id="@+id/action_global_fragment2" app:destination="@id/fragment2" />
-    <action android:id="@+id/action_global_fragment3" app:destination="@id/fragment3" />
+    <action
+        android:id="@+id/action_global_fragment1"
+        app:launchSingleTop="true"
+        app:destination="@id/fragment1" />
+    <action
+        android:id="@+id/action_global_fragment2"
+        app:launchSingleTop="true"
+        app:destination="@id/fragment2" />
+    <action
+        android:id="@+id/action_global_fragment3"
+        app:launchSingleTop="true"
+        app:destination="@id/fragment3" />
     <activity
         android:id="@+id/detailsActivity"
         android:name="com.example.l06.DetailsActivity"
@@ -39,10 +48,17 @@
         android:name="com.example.l06.FragmentDetails"
         android:label="fragment_details"
         tools:layout="@layout/fragment_details" />
-    <action android:id="@+id/action_global_fragmentDetails" app:destination="@id/fragmentDetails" />
+    <action
+        android:id="@+id/action_global_fragmentDetails"
+        app:launchSingleTop="true"
+        app:destination="@id/fragmentDetails" />
     <fragment
         android:id="@+id/fragmentEdit"
         android:name="com.example.l06.FragmentEdit"
         android:label="fragment_edit"
-        tools:layout="@layout/fragment_edit" /><action android:id="@+id/action_global_fragmentEdit" app:destination="@id/fragmentEdit"/>
+        tools:layout="@layout/fragment_edit" />
+    <action
+        android:id="@+id/action_global_fragmentEdit"
+        app:launchSingleTop="true"
+        app:destination="@id/fragmentEdit"/>
 </navigation>

@@ -44,9 +44,15 @@ class Fragment3 : Fragment() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        update_displayed()
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        requireActivity().findViewById<BottomNavigationView>(R.id.bottom_nav).visibility = View.VISIBLE
 
         parentFragmentManager.setFragmentResultListener("f3_altered", viewLifecycleOwner) {
                 _, bundle ->
@@ -112,6 +118,7 @@ class Fragment3 : Fragment() {
                             bundle.putFloat("rating", ratings[position])
 
                             parentFragmentManager.setFragmentResult("f3", bundle)
+                            requireActivity().findViewById<BottomNavigationView>(R.id.bottom_nav).visibility = View.GONE
                             findNavController().navigate(R.id.action_global_fragmentDetails)
                         }
                     }
@@ -128,6 +135,7 @@ class Fragment3 : Fragment() {
             val bundle = Bundle()
             bundle.putInt("position", -1)
             parentFragmentManager.setFragmentResult("f3_edit", bundle)
+            requireActivity().findViewById<BottomNavigationView>(R.id.bottom_nav).visibility = View.GONE
             findNavController().navigate(R.id.action_global_fragmentEdit)
         }
 

@@ -1,6 +1,7 @@
 package com.example.l06
 
 import android.content.Intent
+import android.content.res.Configuration
 import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
@@ -13,6 +14,7 @@ import androidx.core.graphics.blue
 import androidx.core.graphics.green
 import androidx.core.graphics.red
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class FragmentEdit : Fragment() {
 
@@ -30,6 +32,7 @@ class FragmentEdit : Fragment() {
     fun String.toEditable(): Editable =  Editable.Factory.getInstance().newEditable(this)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
         super.onViewCreated(view, savedInstanceState)
 
         val editName: EditText = view.findViewById(R.id.editTextName)
@@ -91,7 +94,7 @@ class FragmentEdit : Fragment() {
 
         val backButton: Button = view.findViewById(R.id.button4)
         backButton.setOnClickListener {
-            if (position == -1) {
+            if (position == -1 || resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
                 findNavController().navigate(R.id.action_global_fragment3)
             }
             else {
