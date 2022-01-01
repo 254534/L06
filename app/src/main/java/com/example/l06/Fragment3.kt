@@ -76,7 +76,10 @@ class Fragment3 : Fragment() {
 
         var fab: FloatingActionButton = view.findViewById(R.id.floatingActionButton)
         fab.setOnClickListener {
-            val intent = Intent(view.context, DetailsActivity::class.java)
+            val intent = Intent(view.context, EditActivity::class.java)
+            val bundle = Bundle()
+            bundle.putInt("position", -1)
+            intent.putExtras(bundle)
             startActivity(intent)
         }
     }

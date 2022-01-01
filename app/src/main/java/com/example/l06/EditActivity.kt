@@ -90,12 +90,20 @@ class EditActivity : AppCompatActivity() {
 
         val backButton: Button = findViewById(R.id.button4)
         backButton.setOnClickListener {
-            onBackPressed()
+            if (position == -1) {
+                onBackPressed()
+            }
+            else {
+                val intent = Intent(this, DetailsActivity::class.java)
+                intent.putExtras(bundle)
+                startActivity(intent)
+                finish()
+            }
         }
 
         val saveButton: Button = findViewById(R.id.button5)
         saveButton.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, DetailsActivity::class.java)
 //            val bundle = Bundle()
             bundle.putInt("position", position!!)
             bundle.putString("name", editName.text.toString())
@@ -106,6 +114,7 @@ class EditActivity : AppCompatActivity() {
 
             intent.putExtras(bundle)
             startActivity(intent)
+            finish()
         }
     }
 
