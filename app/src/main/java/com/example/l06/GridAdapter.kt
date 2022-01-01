@@ -13,12 +13,9 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 
 
-class GridAdapter(c: Context) : BaseAdapter() {
-    private val ctx: Context
-
-    var imgIDs = arrayOf<Int>(
-        R.drawable.z1, R.drawable.z2, R.drawable.z3, R.drawable.z4
-    )
+class GridAdapter(c: Context, initImgIDs: Array<Int>) : BaseAdapter() {
+    private val ctx: Context = c
+    var imgIDs = initImgIDs
 
     override fun getCount(): Int {
         return imgIDs.size
@@ -36,15 +33,11 @@ class GridAdapter(c: Context) : BaseAdapter() {
         val mV: ImageView
         if (cView == null) {
             mV = ImageView(ctx)
-            mV.setLayoutParams(AbsListView.LayoutParams(200, 200))
-            mV.setScaleType(ImageView.ScaleType.CENTER_CROP)
+            mV.layoutParams = AbsListView.LayoutParams(200, 200)
+            mV.scaleType = ImageView.ScaleType.CENTER_CROP
             mV.setPadding(8, 8, 8, 8)
         } else mV = cView as ImageView
         mV.setImageResource(imgIDs[pos])
         return mV
-    }
-
-    init {
-        ctx = c
     }
 }

@@ -22,7 +22,7 @@ class DetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
 
-        val iii: Intent = getIntent()
+        val iii: Intent = intent
         val bundle = iii.extras
 
         position = bundle?.getInt("position")!!
