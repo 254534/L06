@@ -46,6 +46,9 @@ class Fragment3 : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        if(currentChosen == -1) {
+            currentChosen = 0
+        }
         update_displayed()
     }
 
