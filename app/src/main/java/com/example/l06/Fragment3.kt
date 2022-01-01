@@ -17,7 +17,7 @@ class Fragment3 : Fragment() {
         var genders = mutableListOf<Boolean>(false, true, true, true, true, false, true)
         var age = mutableListOf<Int>(15, 23, 11, 23, 33, 45, 21)
         var ratings = mutableListOf<Float>(1.5F, 2F, 5F, 5F, 3.5F, 4.5F, 2F)
-        var colors = mutableListOf<Int>(Color.BLACK, Color.rgb(10, 200, 50), Color.RED, Color.RED, Color.RED, Color.RED, Color.RED)
+        var colors = mutableListOf<Int>(Color.WHITE, Color.rgb(10, 200, 50), Color.RED, Color.BLUE, Color.RED, Color.GREEN, Color.RED)
 
         fun add(position: Int?, name: String?, occupation: String?, gender: Boolean?, rating: Float?, color: Int?) {
             if(position == null) return
@@ -38,8 +38,6 @@ class Fragment3 : Fragment() {
         }
     }
 
-
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         var listView = view.findViewById<ListView>(R.id.main_listview)
@@ -52,7 +50,7 @@ class Fragment3 : Fragment() {
                     R.drawable.man
                 }
             }
-            var adapter = CustomListViewAdapter(view.context, names, occupations, limg)
+            var adapter = CustomListViewAdapter(view.context, names, occupations, limg, colors)
             listView.adapter = adapter
             listView.onItemClickListener = object : AdapterView.OnItemLongClickListener,
                 AdapterView.OnItemClickListener {
