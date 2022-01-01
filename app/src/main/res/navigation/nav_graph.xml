@@ -19,14 +19,7 @@
         android:id="@+id/fragment3"
         android:name="com.example.l06.Fragment3"
         android:label="fragment_3"
-        tools:layout="@layout/fragment_3" >
-        <action
-            android:id="@+id/action_fragment3_to_detailsActivity"
-            app:destination="@id/detailsActivity" />
-        <action
-            android:id="@+id/action_fragment3_to_editActivity"
-            app:destination="@id/editActivity" />
-    </fragment>
+        tools:layout="@layout/fragment_3" />
 
     <action android:id="@+id/action_global_fragment1" app:destination="@id/fragment1" />
     <action android:id="@+id/action_global_fragment2" app:destination="@id/fragment2" />
@@ -41,4 +34,15 @@
         android:name="com.example.l06.EditActivity"
         android:label="activity_edit"
         tools:layout="@layout/activity_edit" />
+    <fragment
+        android:id="@+id/fragmentDetails"
+        android:name="com.example.l06.FragmentDetails"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" />
+    <action android:id="@+id/action_global_fragmentDetails" app:destination="@id/fragmentDetails" />
+    <fragment
+        android:id="@+id/fragmentEdit"
+        android:name="com.example.l06.FragmentEdit"
+        android:label="fragment_edit"
+        tools:layout="@layout/fragment_edit" /><action android:id="@+id/action_global_fragmentEdit" app:destination="@id/fragmentEdit"/>
 </navigation>
