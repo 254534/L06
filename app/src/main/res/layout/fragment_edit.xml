@@ -6,148 +6,194 @@
     android:orientation="vertical"
     tools:context=".FragmentEdit">
 
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Imię i nazwisko" />
+<!--    <TextView-->
+<!--        android:id="@+id/textView7"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="1"-->
+<!--        android:textAlignment="center"-->
+<!--        android:text="Imię i nazwisko" />-->
 
-    <EditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name" />
+<!--    <EditText-->
+<!--        android:textAlignment="center"-->
+<!--        android:id="@+id/editTextName"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="2"-->
+<!--        android:ems="10"-->
+<!--        android:inputType="textPersonName"-->
+<!--        android:hint="np. Agnieszka Kowalska"/>-->
 
 
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="20dp">
+<!--    <TableRow-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="4"-->
+<!--        android:padding="20dp">-->
 
-        <RadioGroup
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            >
+<!--        <RadioGroup-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/RadioGroupGenders"-->
+<!--            >-->
 
-            <RadioButton
-                android:id="@+id/radioButtonWoman"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Kobieta" />
+<!--            <RadioButton-->
+<!--                android:id="@+id/radioButtonWoman"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Kobieta" />-->
 
-            <RadioButton
-                android:id="@+id/radioButtonMan"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Mężczyzna" />
-        </RadioGroup>
+<!--            <RadioButton-->
+<!--                android:id="@+id/radioButtonMan"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Mężczyzna" />-->
+<!--        </RadioGroup>-->
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            tools:src="@tools:sample/avatars" />
+<!--        <ImageView-->
+<!--            android:id="@+id/imageViewEdit"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:layout_height="100dp"-->
+<!--            tools:src="@tools:sample/avatars" />-->
 
-    </TableRow>
+<!--    </TableRow>-->
 
-    <TableRow
-        android:padding="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+<!--    <TableRow-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="2">-->
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="Zawód" />
+<!--        <TextView-->
+<!--            android:id="@+id/textView2"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Zawód" />-->
 
-        <EditText
-            android:id="@+id/textOccupation"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
-    </TableRow>
+<!--        <EditText-->
+<!--            android:id="@+id/editOccupation"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            />-->
+<!--    </TableRow>-->
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:text="Ulubiony kolor" />
+<!--    <TableRow-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="1">-->
 
-    <TableRow
-        android:padding="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+<!--        <TextView-->
+<!--            android:id="@+id/textView4"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:text="Ulubiony kolor"-->
+<!--            android:textSize="16sp" />-->
 
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="Czerwony" />
+<!--        <TextView-->
+<!--            android:id="@+id/textColor2"-->
+<!--            android:layout_width="10dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:text="text"-->
+<!--            android:textSize="16sp" />-->
+<!--    </TableRow>-->
 
-        <SeekBar
-            android:id="@+id/seekBarR"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content" />
-    </TableRow>
-    <TableRow
-        android:padding="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+<!--    <TableRow-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="1">-->
 
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="Zielony" />
+<!--        <TextView-->
+<!--            android:id="@+id/textView8"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Czerwony" />-->
 
-        <SeekBar
-            android:id="@+id/seekBarG"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content" />
-    </TableRow>
-    <TableRow
-        android:padding="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+<!--        <SeekBar-->
+<!--            android:id="@+id/seekBarR"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:layout_height="wrap_content" />-->
+<!--    </TableRow>-->
+<!--    <TableRow-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="1">-->
 
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="Niebieski" />
+<!--        <TextView-->
+<!--            android:id="@+id/textView9"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Zielony" />-->
 
-        <SeekBar
-            android:id="@+id/seekBarB"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content" />
-    </TableRow>
+<!--        <SeekBar-->
+<!--            android:id="@+id/seekBarG"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:layout_height="wrap_content" />-->
+<!--    </TableRow>-->
+<!--    <TableRow-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="1">-->
 
-    <TextView
-        android:id="@+id/textView6"
-        android:textAlignment="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Ocena" />
+<!--        <TextView-->
+<!--            android:id="@+id/textView10"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Niebieski" />-->
 
-    <RatingBar
-        android:id="@+id/ratingBar"
-        android:layout_width="wrap_content"
-        android:layout_gravity="center"
-        android:layout_height="wrap_content" />
+<!--        <SeekBar-->
+<!--            android:id="@+id/seekBarB"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:layout_height="wrap_content" />-->
+<!--    </TableRow>-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView6"-->
+<!--        android:textAlignment="center"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="1"-->
+<!--        android:text="Ocena" />-->
+
+<!--    <RatingBar-->
+<!--        android:id="@+id/ratingBarE"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="2"/>-->
+
+<!--    <TableRow-->
+<!--        android:padding="2dp"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="2">-->
+
+<!--        <Button-->
+<!--            android:id="@+id/button4"-->
+<!--            android:layout_marginHorizontal="5dp"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="back" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/button5"-->
+<!--            android:layout_marginHorizontal="5dp"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="save" />-->
+<!--    </TableRow>-->
 
 </LinearLayout>
