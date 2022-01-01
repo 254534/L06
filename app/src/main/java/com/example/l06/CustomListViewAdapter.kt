@@ -12,10 +12,10 @@ import android.view.View
 import android.widget.*
 
 
-class CustomListViewAdapter internal constructor(context: Context, mainNames: Array<String>, subNames: Array<String>, images: Array<Int>) : BaseAdapter() {
-    private var mainNamesInner: Array<String> = mainNames
-    private var subNamesInner: Array<String> = subNames
-    private var imagesInner: Array<Int> = images
+class CustomListViewAdapter internal constructor(context: Context, mainNames: List<String>, subNames: List<String>, images: List<Int>) : BaseAdapter() {
+    private var mainNamesInner: List<String> = mainNames
+    private var subNamesInner: List<String> = subNames
+    private var imagesInner: List<Int> = images
 
     class LVitem {
         var tv1: TextView? = null

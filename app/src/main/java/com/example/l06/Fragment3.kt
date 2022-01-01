@@ -12,33 +12,47 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class Fragment3 : Fragment() {
     companion object {
-        private var names = arrayOf("Yahya O'Brien", "Anne-Marie Sharpe", "Vanessa Raymond", "Kerri Estrada", "Trixie Greenwood", "Ariyan Gaines", "Kinga Stark")
-        private var occupation = arrayOf("architekt", "informatyk", "informatyk", "nauczyciel", "taksówkarz", "fryzjer", "architekt")
-        private var gender = arrayListOf<Boolean>(false, true, true, true, true, false, true)
-        private var age = arrayListOf<Int>(15, 23, 11, 23, 33, 45, 21)
-        private var rating = arrayListOf<Float>(1.5F, 2F, 5F, 5F, 3.5F, 4.5F, 2F)
-        private var color = arrayListOf<Int>(Color.BLACK, Color.rgb(10, 200, 50), Color.RED, Color.RED, Color.RED, Color.RED, Color.RED)
+        var names = mutableListOf<String>("Yahya O'Brien", "Anne-Marie Sharpe", "Vanessa Raymond", "Kerri Estrada", "Trixie Greenwood", "Ariyan Gaines", "Kinga Stark")
+        var occupations = mutableListOf("architekt", "informatyk", "informatyk", "nauczyciel", "taksówkarz", "fryzjer", "architekt")
+        var genders = mutableListOf<Boolean>(false, true, true, true, true, false, true)
+        var age = mutableListOf<Int>(15, 23, 11, 23, 33, 45, 21)
+        var ratings = mutableListOf<Float>(1.5F, 2F, 5F, 5F, 3.5F, 4.5F, 2F)
+        var colors = mutableListOf<Int>(Color.BLACK, Color.rgb(10, 200, 50), Color.RED, Color.RED, Color.RED, Color.RED, Color.RED)
+
+        fun add(position: Int?, name: String?, occupation: String?, gender: Boolean?, rating: Float?, color: Int?) {
+            if(position == null) return
+            if (position == -1) {
+                names += name!!
+                occupations += occupation!!
+                genders += gender!!
+                ratings += rating!!
+                colors += color!!
+            }
+            else {
+                names[position] = name!!
+                occupations[position] = occupation!!
+                genders[position] = gender!!
+                ratings[position] = rating!!
+                colors[position] = color!!
+            }
+        }
     }
 
-    fun <T> append(arr: Array<T>, element: T): Array<T?> {
-        val array = arr.copyOf(arr.size + 1)
-        array[arr.size] = element
-        return array
-    }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         var listView = view.findViewById<ListView>(R.id.main_listview)
         if (listView != null) run {
-            var limg: Array<Int?> = arrayOf()
-            for(g in gender) {
-                limg = if(g) {
-                    append(limg, R.drawable.woman)
+            val limg: MutableList<Int> = mutableListOf()
+            for(g in genders) {
+                limg += if(g) {
+                    R.drawable.woman
                 } else {
-                    append(limg, R.drawable.man)
+                    R.drawable.man
                 }
             }
-            var adapter = CustomListViewAdapter(view.context, names, occupation, limg as Array<Int>)
+            var adapter = CustomListViewAdapter(view.context, names, occupations, limg)
             listView.adapter = adapter
             listView.onItemClickListener = object : AdapterView.OnItemLongClickListener,
                 AdapterView.OnItemClickListener {
@@ -63,10 +77,10 @@ class Fragment3 : Fragment() {
                         val bundle = Bundle()
                         bundle.putInt("position", position)
                         bundle.putString("name", names[position])
-                        bundle.putBoolean("gender", gender[position])
-                        bundle.putString("occupation", occupation[position])
-                        bundle.putInt("color", color[position])
-                        bundle.putFloat("rating", rating[position])
+                        bundle.putBoolean("gender", genders[position])
+                        bundle.putString("occupation", occupations[position])
+                        bundle.putInt("color", colors[position])
+                        bundle.putFloat("rating", ratings[position])
                         intent.putExtras(bundle)
                         startActivity(intent)
                     }

@@ -105,6 +105,8 @@ class EditActivity : AppCompatActivity() {
         saveButton.setOnClickListener {
             val intent = Intent(this, DetailsActivity::class.java)
 //            val bundle = Bundle()
+
+
             bundle.putInt("position", position!!)
             bundle.putString("name", editName.text.toString())
             bundle.putBoolean("gender", gender!!)
@@ -115,6 +117,8 @@ class EditActivity : AppCompatActivity() {
             intent.putExtras(bundle)
             startActivity(intent)
             finish()
+            Fragment3.add(position, editName.text.toString(), editOccupation.text.toString(), gender,
+                ratingBar.rating, Color.rgb(seekBarRed.progress, seekBarGreen.progress, seekBarBlue.progress))
         }
     }
 
