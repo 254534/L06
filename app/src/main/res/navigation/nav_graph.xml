@@ -33,16 +33,6 @@
         android:id="@+id/action_global_fragment3"
         app:launchSingleTop="true"
         app:destination="@id/fragment3" />
-    <activity
-        android:id="@+id/detailsActivity"
-        android:name="com.example.l06.DetailsActivity"
-        android:label="activity_details"
-        tools:layout="@layout/activity_details" />
-    <activity
-        android:id="@+id/editActivity"
-        android:name="com.example.l06.EditActivity"
-        android:label="activity_edit"
-        tools:layout="@layout/activity_edit" />
     <fragment
         android:id="@+id/fragmentDetails"
         android:name="com.example.l06.FragmentDetails"
