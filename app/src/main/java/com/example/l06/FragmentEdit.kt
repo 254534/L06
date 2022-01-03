@@ -33,6 +33,10 @@ class FragmentEdit : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
+        if(savedInstanceState != null){
+            position = savedInstanceState.getInt("position", -1)
+        }
+
         super.onViewCreated(view, savedInstanceState)
 
         val editName: EditText = view.findViewById(R.id.editTextName)
@@ -45,6 +49,7 @@ class FragmentEdit : Fragment() {
         val seekBarRed: SeekBar = view.findViewById(R.id.seekBarR)
         val seekBarGreen: SeekBar = view.findViewById(R.id.seekBarG)
         val seekBarBlue: SeekBar = view.findViewById(R.id.seekBarB)
+        textColor = view.findViewById(R.id.textColor2)
 
         parentFragmentManager.setFragmentResultListener("f3_edit", viewLifecycleOwner) {
                 _, bundle ->
@@ -56,7 +61,7 @@ class FragmentEdit : Fragment() {
             color = bundle.getInt("color")
             rating = bundle.getFloat("rating")
 
-            textColor = view.findViewById(R.id.textColor2)
+
 
             if (position != null) {
                 editName.text = name?.toEditable()
@@ -118,6 +123,11 @@ class FragmentEdit : Fragment() {
             findNavController().navigate(R.id.action_global_fragment3)
         }
 
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        position?.let { outState.putInt("position", it) }
+        super.onSaveInstanceState(outState)
     }
 
     override fun onCreateView(

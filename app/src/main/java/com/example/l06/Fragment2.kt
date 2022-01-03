@@ -11,9 +11,9 @@ class Fragment2 : Fragment() {
     companion object {
         private var languagesInx: Int = 0
         private var imagesInx: Int = 0
+        private var listLanguages = arrayOf("Dzień dobry", "Bonjour", "Hola", "Zdravstvuyte", "Nǐn hǎo", "Salve", "Konnichiwa")
+        private var listImageIDs = arrayOf(R.drawable.z1, R.drawable.z2, R.drawable.z3, R.drawable.z4, R.drawable.man, R.drawable.woman, R.drawable.z3, R.drawable.z4, R.drawable.z1, R.drawable.z2, R.drawable.man, R.drawable.woman)
     }
-    private var listLanguages = arrayOf("Dzień dobry", "Bonjour", "Hola", "Zdravstvuyte", "Nǐn hǎo", "Salve", "Konnichiwa")
-    private var listImageIDs = arrayOf(R.drawable.z1, R.drawable.z2, R.drawable.z3, R.drawable.z4, R.drawable.man, R.drawable.woman, R.drawable.z3, R.drawable.z4, R.drawable.z1, R.drawable.z2, R.drawable.man, R.drawable.woman)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

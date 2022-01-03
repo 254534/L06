@@ -46,9 +46,9 @@ class MainActivity : AppCompatActivity() {
         val bnNavView = this.findViewById<BottomNavigationView>(R.id.bottom_nav)
         val menu: Menu = bnNavView.menu
 
-        if (bnNavView.selectedItemId == menu.getItem(2).itemId) {
-            menu.getItem(2).isChecked = true
-            navController.navigate(R.id.action_global_fragment3)
-        }
+//        if (bnNavView.selectedItemId == menu.getItem(2).itemId) {
+//            menu.getItem(2).isChecked = true
+//            navController.navigate(R.id.action_global_fragment3)
+//        }
     }
 }
