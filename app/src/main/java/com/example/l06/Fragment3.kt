@@ -78,6 +78,8 @@ class Fragment3 : Fragment() {
             }
             var adapter = CustomListViewAdapter(view.context, names, occupations, limg, colors)
             listView.adapter = adapter
+//            zamiast tego notify dataset changed
+//            9pkt
         }
 
         var listView = view.findViewById<ListView>(R.id.main_listview)
