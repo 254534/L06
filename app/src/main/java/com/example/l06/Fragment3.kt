@@ -1,28 +1,27 @@
 package com.example.l06
 
-import android.content.Intent
 import android.content.res.Configuration
 import android.graphics.Color
-import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.fragment.app.FragmentContainerView
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class Fragment3 : Fragment() {
+    private lateinit var mPersonViewModel: PersonViewModel
     companion object {
-        var names = mutableListOf<String>("Yahya O'Brien", "Anne-Marie Sharpe", "Vanessa Raymond", "Kerri Estrada", "Trixie Greenwood", "Ariyan Gaines", "Kinga Stark")
-        var occupations = mutableListOf("architekt", "informatyk", "informatyk", "nauczyciel", "taksówkarz", "fryzjer", "architekt")
-        var genders = mutableListOf<Boolean>(false, true, true, true, true, false, true)
-        var age = mutableListOf<Int>(15, 23, 11, 23, 33, 45, 21)
-        var ratings = mutableListOf<Float>(1.5F, 2F, 5F, 5F, 3.5F, 4.5F, 2F)
-        var colors = mutableListOf<Int>(Color.WHITE, Color.rgb(10, 200, 50), Color.RED, Color.BLUE, Color.RED, Color.GREEN, Color.RED)
+        var names = mutableListOf<String>("Yahya O'Brien")
+        var occupations = mutableListOf("architekt")
+        var genders = mutableListOf<Boolean>(false)
+        var age = mutableListOf<Int>(15)
+        var ratings = mutableListOf<Float>(1.5F)
+        var colors = mutableListOf<Int>(Color.WHITE)
         var currentChosen: Int = -1
 
         fun add(position: Int?, name: String?, occupation: String?, gender: Boolean?, rating: Float?, color: Int?) {
@@ -41,7 +40,14 @@ class Fragment3 : Fragment() {
                 ratings[position] = rating!!
                 colors[position] = color!!
             }
+
         }
+    }
+
+    fun addPersonDatabase(position: Int?, name: String?, occupation: String?, gender: Boolean?, rating: Float?, color: Int?) {
+        val person = Person(position!!, name!!, occupation!!, gender!!, rating!!, color!!)
+        mPersonViewModel.addPerson(person)
+        Toast.makeText(requireContext(), position.toString(), Toast.LENGTH_LONG).show()
     }
 
     override fun onResume() {
@@ -66,6 +72,7 @@ class Fragment3 : Fragment() {
             val temp_color = bundle.getInt("color")
             val rating = bundle.getFloat("rating")
             add(position, name, occupation, gender, rating, temp_color)
+            addPersonDatabase(0, name, occupation, gender, rating, temp_color)
 
             var listView = view.findViewById<ListView>(R.id.main_listview)
             val limg: MutableList<Int> = mutableListOf()
@@ -176,7 +183,8 @@ class Fragment3 : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_3, container, false)
+        val view = inflater.inflate(R.layout.fragment_3, container, false)
+        mPersonViewModel = ViewModelProvider(this).get(PersonViewModel::class.java)
+        return view
     }
 }

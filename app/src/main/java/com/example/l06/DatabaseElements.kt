@@ -2,10 +2,16 @@ package com.example.l06
 
 import android.app.Application
 import android.content.Context
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
+import androidx.recyclerview.widget.RecyclerView
 import androidx.room.*
 import androidx.room.RoomDatabase
 import kotlinx.coroutines.Dispatchers
@@ -53,7 +59,7 @@ public abstract class PersonRoomDatabase : RoomDatabase() {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     PersonRoomDatabase::class.java,
-                    "person_database"
+                    "people_database"
                 ).build()
                 INSTANCE = instance
                 return instance
@@ -69,7 +75,7 @@ class PersonRepository(private val personDao: PersonDao) {
 
 //    @Suppress("RedundantSuspendModifier")
 //    @WorkerThread
-    suspend fun addPerson(person: Person) {
+    fun addPerson(person: Person) {
         personDao.addPerson(person)
     }
 }
@@ -91,28 +97,28 @@ class PersonViewModel(application: Application): AndroidViewModel(application) {
     }
 }
 
-//class ListAdapter: RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
-//    private var personList = emptyList<Person>()
-//    class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {}
-//
-//    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-//        return MyViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.list_row, parent,false))
-//    }
-//
-//    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-//        val currentItem = personList[position]
-//        holder.itemView.findViewById<TextView>(R.id.row_tv1).text = currentItem.name
-//        holder.itemView.findViewById<TextView>(R.id.row_tv2).text = currentItem.occupation
-//        holder.itemView.findViewById<ImageView>(R.id.row_image).setBackgroundColor(currentItem.color)
-//
-//    }
-//
-//    override fun getItemCount(): Int {
-//        return personList.size
-//    }
-//
-//    fun setData(personList: List<Person>) {
-//        this.personList = personList
-//        notifyDataSetChanged()
-//    }
-//}
+class ListAdapter: RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
+    private var personList = emptyList<Person>()
+    class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {}
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
+        return MyViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.list_row, parent,false))
+    }
+
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        val currentItem = personList[position]
+        holder.itemView.findViewById<TextView>(R.id.row_tv1).text = currentItem.name
+        holder.itemView.findViewById<TextView>(R.id.row_tv2).text = currentItem.occupation
+        holder.itemView.findViewById<ImageView>(R.id.row_image).setBackgroundColor(currentItem.color)
+
+    }
+
+    override fun getItemCount(): Int {
+        return personList.size
+    }
+
+    fun setData(personList: List<Person>) {
+        this.personList = personList
+        notifyDataSetChanged()
+    }
+}
