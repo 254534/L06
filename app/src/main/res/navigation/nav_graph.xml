@@ -37,7 +37,11 @@
         android:id="@+id/fragmentDetails"
         android:name="com.example.l06.FragmentDetails"
         android:label="fragment_details"
-        tools:layout="@layout/fragment_details" />
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="currentPerson"
+            app:argType="com.example.l06.Person" />
+    </fragment>
     <action
         android:id="@+id/action_global_fragmentDetails"
         app:launchSingleTop="true"
